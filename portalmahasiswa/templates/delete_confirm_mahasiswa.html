@@ -1,0 +1,24 @@
+
+
+<table class="table">
+    <tbody>
+      <tr>
+        <td>{{mahasiswa.nama_mahasiswa}}</td>    
+    </tr>
+    <tr>
+        <td>{{mahasiswa.nomor_siswa}}</td>    
+    </tr>
+    <tr>
+
+        <td>{{mahasiswa.alamat}}</td>    
+    </tr>
+    </tbody>
+</table>
+
+<div>
+    <p>Apakah Anda YAKIN akan menghapus info tersebut ??? </p>
+</div>
+<form method="POST" enctype="multipart/form-data">
+    {% csrf_token %}
+    <button class="btn btn-primary" type="submit">YAKIN SEKALI</button>
+</form>
