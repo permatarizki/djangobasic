@@ -10,8 +10,22 @@ from django.views.generic.edit import CreateView, UpdateView, DeleteView
 def portal(request):
     semua_mahasiswa = models.Mahasiswa.objects.all()
     # print(semua_mahasiswa)
-    def post(self, request):
-        print(request.POST.get('keyword', ''))
+    if request.method == "POST":
+        keyword = request.POST.get('keyword', '')
+        result = models.Mahasiswa.objects.filter(nama_mahasiswa__icontains = keyword)
+        if keyword != '':
+            return render(request, 'index.html', {
+                'semua_mahasiswa': result,
+            })
+        else:
+            return render(request, 'index.html', {
+                'semua_mahasiswa': semua_mahasiswa,
+            })
+
+        print(keyword)
+
+    # def post(self, request):
+    #     print(request.POST.get('keyword', ''))
 
     
     return render(request, 'index.html', {

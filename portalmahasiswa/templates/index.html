@@ -19,7 +19,8 @@
           <a class="btn btn-primary" href="{% url 'mahasiswa_create' %}" role="button">Tambah Mahasiswa Baru</a>
         </div>
         <div class="col float-right">
-          <form action="{% url 'portal' %}">
+          <form method="POST" action="{% url 'portal' %}">
+            {% csrf_token %}
             <input name="keyword" type="text" placeholder="Search..">
             <input type="submit" value="Search">
           </form>
